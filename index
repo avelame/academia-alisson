@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ajusta a página para a largura do dispositivo e define zoom inicial -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  
+  <!-- Faz a página poder ser exibida como Web App em iOS (tela cheia, sem barra do Safari) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <title>Treino Diário</title>
+  
+  <!-- Fonte do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" 
+    rel="stylesheet"
+  />
+
+  <style>
+    /* RESET BÁSICO */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* TIPOGRAFIA GERAL */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CABEÇALHO */
+    header {
+      background: linear-gradient(90deg, #3b3b98, #575fcf);
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* MENU DE NAVEGAÇÃO */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #575fcf;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav button {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 15px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+      -webkit-appearance: none; /* remove estilos padrão em iOS */
+      outline: none;
+    }
+    nav button:hover {
+      background-color: #474d84;
+    }
+
+    /* CONTEÚDO DAS SEÇÕES */
+    section {
+      display: none; /* todas as seções começam escondidas */
+      padding: 20px 15px;
+    }
+    section.active {
+      display: block; /* a seção ativa aparece */
+    }
+
+    /* TÍTULOS DOS DIAS */
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #3b3b98;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* CAMPO DE IMAGENS ILUSTRATIVAS */
+    .exercise-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 15px;
+    }
+    .exercise-images img {
+      width: 30%;
+      max-width: 100px;
+      margin: 5px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* CARTÃO DOS EXERCÍCIOS */
+    .exercises {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+    .exercises ol {
+      margin-left: 20px;
+      margin-bottom: 0;
+    }
+    .exercises li {
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .exercises li strong {
+      color: #575fcf;
+    }
+
+    /* RESPONSIVIDADE BÁSICA */
+    @media (min-width: 600px) {
+      nav button {
+        font-size: 1.1rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+      section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Rotina de Treino</h1>
+    <p>Selecione o dia da semana para ver os exercícios</p>
+  </header>
+
+  <!-- Menu de navegação -->
+  <nav>
+    <button onclick="mostrarSecao('segunda')">Seg</button>
+    <button onclick="mostrarSecao('terca')">Ter</button>
+    <button onclick="mostrarSecao('quarta')">Qua</button>
+    <button onclick="mostrarSecao('quinta')">Qui</button>
+    <button onclick="mostrarSecao('sexta')">Sex</button>
+  </nav>
+
+  <!-- SEGUNDA -->
+  <section id="segunda" class="active">
+    <h2>Segunda: Peito + Tríceps + Anterior de Ombros</h2>
+    <!-- Campo para imagens ilustrativas -->
+    <div class="exercise-images">
+      <img src="https://via.placeholder.com/100?text=Ex1" alt="Exercício 1">
+      <img src="https://via.placeholder.com/100?text=Ex2" alt="Exercício 2">
+      <img src="https://via.placeholder.com/100?text=Ex3" alt="Exercício 3">
+    </div>
+    <div class="exercises">
+      <ol>
+        <li><strong>Supino Reto com Barra</strong> - 4x6-8 (foco em carga pesada)</li>
+        <li><strong>Supino Inclinado</strong> - 4x8-10</li>
+        <li><strong>Voador (Máquina/Cross)</strong> - 3x10-12 (controle excêntrico)</li>
+        <li><strong>Cross para Baixo (Peitoral Inferior)</strong> - 3x12-15</li>
+        <li><strong>Tríceps Francês (Barra)</strong> - 4x8-10</li>
+        <li><strong>Tríceps Corda (Polia Alta)</strong> - 3x12-15 + 1 drop set na última série</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TERÇA -->
+  <section id="terca">
+    <h2>Terça: Costas + Bíceps + Posterior de Ombros</h2>
+    <!-- Campo para imagens ilustrativas -->
+    <div class="exercise-images">
+      <img src="https://via.placeholder.com/100?text=Ex1" alt="Exercício 1">
+      <img src="https://via.placeholder.com/100?text=Ex2" alt="Exercício 2">
+      <img src="https://via.placeholder.com/100?text=Ex3" alt="Exercício 3">
+    </div>
+    <div class="exercises">
+      <ol>
+        <li><strong>Puxador Grande pela Frente</strong> - 4x8-10 (peso controlado, sem balanço)</li>
+        <li><strong>Remada Curvada</strong> - 4x8-10 (costas paralelas ao chão)</li>
+        <li><strong>Remada Sentada</strong> - 4x8-10 (puxe até o umbigo)</li>
+        <li><strong>Puxador Triângulo</strong> - 3x10-12 (foco em dorsais inferiores)</li>
+        <li><strong>Posterior de Ombros no Cross</strong> - 4x12-15 (cotovelos altos, sem usar trapézio)</li>
+        <li><strong>Rosca Alternada</strong> - 4x8-10 (pause no topo)</li>
+        <li><strong>Rosca Direta</strong> - 3x8 + 10s de pausa isométrica + 8 reps (rest-pause)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUARTA -->
+  <section id="quarta">
+    <h2>Quarta: Pernas (Quadríceps + Posterior + Panturrilha)</h2>
+    <!-- Campo para imagens ilustrativas -->
+    <div class="exercise-images">
+      <img src="https://via.placeholder.com/100?text=Ex1" alt="Exercício 1">
+      <img src="https://via.placeholder.com/100?text=Ex2" alt="Exercício 2">
+      <img src="https://via.placeholder.com/100?text=Ex3" alt="Exercício 3">
+    </div>
+    <div class="exercises">
+      <ol>
+        <li><strong>Agachamento Livre</strong> - 4x8-10 (aquecimento progressivo nas primeiras séries)</li>
+        <li><strong>Hack Machine</strong> - 3x10-12 (pés mais fechados para ênfase no quadríceps)</li>
+        <li><strong>Cadeira Extensora</strong> - 3x12-15 (controle excêntrico)</li>
+        <li><strong>Flexora em Pé</strong> - 3x12 (foco no alongamento)</li>
+        <li><strong>Flexora Deitada</strong> - 4x10 (pico de contração no topo)</li>
+        <li><strong>Panturrilha Sentado</strong> - 5x15-20 (amplitude total, sem impulso)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUINTA -->
+  <section id="quinta">
+    <h2>Quinta: Ombros (Anterior + Lateral + Posterior)</h2>
+    <!-- Campo para imagens ilustrativas -->
+    <div class="exercise-images">
+      <img src="https://via.placeholder.com/100?text=Ex1" alt="Exercício 1">
+      <img src="https://via.placeholder.com/100?text=Ex2" alt="Exercício 2">
+      <img src="https://via.placeholder.com/100?text=Ex3" alt="Exercício 3">
+    </div>
+    <div class="exercises">
+      <ol>
+        <li><strong>Desenvolvimento com Barra</strong> - 4x8-10 (execução rigorosa, sem arquear as costas)</li>
+        <li><strong>Elevação Lateral (Halteres)</strong> - 4x12-15 (cotovelo levemente flexionado)</li>
+        <li><strong>Desenvolvimento Arnold</strong> - 3x10-12 (rotação controlada)</li>
+        <li><strong>Remada Alta (Polia Baixa)</strong> - 3x12-15 (pegada aberta para reduzir impacto no manguito)</li>
+        <li><strong>Posterior de Ombros no Cross</strong> - 4x10-12 (cotovelos acima dos punhos)</li>
+        <li><strong>Elevação Frontal (Polia)</strong> - 4x12-15 (evite balanço)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SEXTA -->
+  <section id="sexta">
+    <h2>Sexta: Bíceps + Tríceps (Hipertrofia)</h2>
+    <!-- Campo para imagens ilustrativas -->
+    <div class="exercise-images">
+      <img src="https://via.placeholder.com/100?text=Ex1" alt="Exercício 1">
+      <img src="https://via.placeholder.com/100?text=Ex2" alt="Exercício 2">
+      <img src="https://via.placeholder.com/100?text=Ex3" alt="Exercício 3">
+    </div>
+    <div class="exercises">
+      <ol>
+        <li><strong>Rosca Direta</strong> - 3x8 + 10s de pausa isométrica + 8 reps (rest-pause)</li>
+        <li><strong>Banco Scott</strong> - 4x10-12 (controle na fase negativa)</li>
+        <li><strong>Rosca Alternada</strong> - 3x12-15 (sem momentum)</li>
+        <li><strong>Tríceps Testa</strong> - 4x8-10 (carga moderada, amplitude total)</li>
+        <li><strong>Tríceps Corda (Polia Alta)</strong> - 3x8 + 10 reps + 12 reps (aumento progressivo de reps na mesma série)</li>
+        <li><strong>Tríceps Francês</strong> - 3x15 (peso leve, foco no pump)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SCRIPT PARA TROCAR SEÇÕES -->
+  <script>
+    function mostrarSecao(dia) {
+      // Esconde todas as sections
+      document.querySelectorAll('section').forEach(secao => {
+        secao.classList.remove('active');
+      });
+      // Mostra apenas a seção correspondente
+      document.getElementById(dia).classList.add('active');
+    }
+  </script>
+</body>
+</html>
